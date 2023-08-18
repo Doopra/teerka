@@ -1,0 +1,115 @@
+.body-container{
+    padding: 10px 100px;
+}
+#home-tab, #furnitures-tab, #maps-tab{
+    width: 300px;
+    font-size: 20px;
+
+}
+
+
+#maps-tab{
+    border-bottom: 3px solid #fabb36;
+
+}
+#myTabControl #home{
+
+    padding-top: 50px;
+}
+#myTabControl #furnitures{
+    padding: 60px;
+    padding-top: 50px;
+}
+.infoContainer{
+    padding: 50px;
+}
+.w-100{
+    height: 400px !important;
+}
+.carousel {
+    position: relative;
+  }
+  .carousel-item img {
+    object-fit: cover;
+  }
+  #carousel-thumbs {
+    background: rgba(255,255,255,.3);
+    bottom: 0;
+    left: 0;
+    padding: 0 10px;
+    right: 0;
+  }
+  #carousel-thumbs img {
+    border: 5px solid transparent;
+    cursor: pointer;
+  }
+  #carousel-thumbs img:hover {
+    border-color: rgba(255,255,255,.3);
+  }
+  #carousel-thumbs .selected img {
+    border-color: #fff;
+  }
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 50px;
+  }
+  .col-14 .description{
+    margin-top: 20px;
+    font-size: 20px;
+    color: #4f4f4f;
+  }
+  #home .col-14{
+    margin-top: 20px;
+    border-bottom: 1px solid #dee2e6;
+
+  }
+  .sub-heading{
+    font-size: 15px;
+    color: #4f4f4f;
+  }
+  
+ .special-features .row{
+
+    margin-bottom: 20px;
+
+ }
+.container{
+    width: 2000px !important;
+}
+
+
+  @media all and (max-width: 767px) {
+    .carousel-container #carousel-thumbs img {
+      border-width: 3px;
+    }
+  }
+  @media all and (min-width: 576px) {
+    .carousel-container #carousel-thumbs {
+      position: absolute;
+    }
+  }
+  @media all and (max-width: 576px) {
+    .carousel-container #carousel-thumbs {
+      background: #ccccce;
+    }
+  }
+
+#lightbox{
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0, .8);
+    display: none;
+}
+#lightbox.active{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#lightbox img{
+    width: 600px;
+    height: 400px;
+    padding: 10px;
+}
