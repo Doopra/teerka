@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\UserManagementController;
 use App\Http\Controllers\AdminController\OrdersController;
 use App\Http\Controllers\AdminController\ProductController;
 use App\Http\Controllers\AdminController\CategoryController;
@@ -18,7 +19,7 @@ use App\Http\Controllers\AdminController\CategoryController;
 |
 */
 
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/teerka', [HomeController::class, 'index']);
 
 Route::middleware([
     'auth:sanctum',
@@ -30,11 +31,17 @@ Route::middleware([
     })->name('dashboard');
 });
 
+Route::get('/registerUser', [UserManagementController::class, 'register'])->name('registerUser'); // for view
+Route::post('/register', [UserManagementController::class, 'registerPost'])->name('register'); // To register
+Route::post('/login', [UserManagementController::class, 'loginPost'])->name('login'); // To register
+Route::DELETE('/logout', [UserManagementController::class, 'logout'])->name('logout'); // To logout
+
+
+
 Route::get('/redirect', [HomeController::class, 'redirect'])->middleware('auth','verified');
 
-Route::group(['middleware'=>['admin']], function(){
 
-});
+
 //  category route
 Route::get('/view_category', [CategoryController::class, 'view_category']);
 Route::post('/add_category', [CategoryController::class, 'add_category']);

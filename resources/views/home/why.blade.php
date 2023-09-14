@@ -26,7 +26,7 @@
                       {{$city->city}}
                    </h5>
                    <p>
-                    {{$city->count}} properties in Uyo
+                    {{$city->count}} properties in {{ $city->city }}
                    </p>
                 </div>
 

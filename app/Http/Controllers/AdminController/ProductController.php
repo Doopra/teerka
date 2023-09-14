@@ -81,7 +81,7 @@ class ProductController extends Controller
 
     public function show_product(){
         $product = product::all();
-        return view('admin.show_product', compact('product'));
+        return view('admin.product_page', compact('product'));
     }
 
 

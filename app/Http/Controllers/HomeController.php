@@ -69,7 +69,7 @@ class HomeController extends Controller
 
 
 
-        return view('home.userpage')->with('products',$data)->with('products',$products)->with('property',$virginProducts)->with('bestApartment',$mostLikeApartment)->with('bestApartment',$mostLikeData)->with('cities',$cities);
+        return view('home.userpage')->with('cities',$cities)->with('products',$data)->with('products',$products)->with('property',$virginProducts)->with('bestApartment',$mostLikeApartment)->with('bestApartment',$mostLikeData);
 
 
 
