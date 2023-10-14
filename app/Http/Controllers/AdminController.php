@@ -17,6 +17,9 @@ use App\Notifications\SendEmailNotification;
 class AdminController extends Controller
 {
    
+    public function redirec(){
+        return view('admin.admin.admin.index');
+    }
    
     public function send_email($id){
         $order = order::find($id);

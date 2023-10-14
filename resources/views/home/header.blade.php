@@ -54,7 +54,7 @@
                  
               
                  <li class="nav-item">
-                  <a class="btn btn-primary" id="logincss" href="{{ route('registerUser') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Login</a>
+                  <a class="btn btn-primary" id="logincss" href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Login</a>
                </li>
 
                <li class="nav-item">

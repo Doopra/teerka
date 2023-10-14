@@ -282,33 +282,28 @@ class HomeController extends Controller
     return view('home.search_file')->with('data',$data)->with('data',$products);
 }
 
-    public function property($id){
-        $product=product::find($id);
+   
+public function property(Product $property) // Accept the Product model instance
+{
+    $product_id = $property->id;
 
-        $product_id = $product->id;
+    $image = Image::where('product_id', $product_id)->limit(6)->get();
 
-        $image = Image::where('product_id',$product_id)->limit(6)->get();
+    $properties = Product::all();
 
+    $data = array();
 
+    foreach ($properties as $prop) {
+        $product_id = $prop->id;
 
-        $properties = Product::all();
+        $images = Image::where('product_id', $product_id)->limit(6)->get();
 
-        $data = array();
-
-        foreach($properties as $property){
-            $product_id = $property->id;
-
-            $images = Image::where('product_id',$product_id)->limit(6)->get();
-
-            $property['images']=$images;
-            $data[] = $property;
-
-
-        }
-
-
-        return view('home.property')->with('product',$product)->with('image',$image)->with('properties',$data);
+        $prop['images'] = $images;
+        $data[] = $prop;
     }
+
+    return view('home.property')->with('product', $property)->with('image', $image)->with('properties', $data);
+}
 
     public function city_listing($city){
         $products = product::where('city',$city)->with('images')->paginate(3);

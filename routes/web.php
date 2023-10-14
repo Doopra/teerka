@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminController\BookingsController;
 use App\Http\Controllers\UserManagementController;
 use App\Http\Controllers\AdminController\OrdersController;
 use App\Http\Controllers\AdminController\ProductController;
@@ -19,41 +20,44 @@ use App\Http\Controllers\AdminController\CategoryController;
 |
 */
 
-Route::get('/teerka', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->name('home.index');
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified'
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-});
+// Route::middleware([
+//     'auth:sanctum',
+//     config('jetstream.auth_session'),
+//     'verified'
+// ])->group(function () {
+//     Route::get('/dashboard', function () {
+//         return view('dashboard');
+//     })->name('dashboard');
+// });
 
-Route::get('/registerUser', [UserManagementController::class, 'register'])->name('registerUser'); // for view
+Route::get('/register', [UserManagementController::class, 'register'])->name('registerUser'); // for view
 Route::post('/register', [UserManagementController::class, 'registerPost'])->name('register'); // To register
+Route::get('/login', [UserManagementController::class, 'login'])->name('login'); // To register
 Route::post('/login', [UserManagementController::class, 'loginPost'])->name('login'); // To register
 Route::DELETE('/logout', [UserManagementController::class, 'logout'])->name('logout'); // To logout
 
 
 
-Route::get('/redirect', [HomeController::class, 'redirect'])->middleware('auth','verified');
+Route::get('/redirect', [AdminController::class, 'redirec']);
+
+// ->middleware('auth','verified');
 
 
 
 //  category route
-Route::get('/view_category', [CategoryController::class, 'view_category']);
+Route::get('/view_category', [CategoryController::class, 'view_category'])->name('category');
 Route::post('/add_category', [CategoryController::class, 'add_category']);
 Route::get('/delete_category/{id}', [CategoryController::class, 'delete_category']);
 
 
 //product route
 
-Route::get('/view_product', [ProductController::class, 'view_product']);
+Route::get('/view_product', [ProductController::class, 'view_product'])->name('admin.add_product');
 Route::post('/add_product', [ProductController::class, 'add_product']);
 Route::get('/product_details/{id}', [HomeController::class, 'product_details']);
-Route::get('/show_product', [ProductController::class, 'show_product']);
+Route::get('/show_product', [ProductController::class, 'show_product'])->name('admin.show_product');
 Route::get('/delete_product/{id}', [ProductController::class, 'delete_product']);
 
 
@@ -86,12 +90,14 @@ Route::post('stripe/{totalprice}', [HomeController::class, 'stripePost'])->name(
 Route::get('/search', [HomeController::class, 'searchdata']);
 
 // property route
-Route::get('/property/{id}', [HomeController::class, 'property']);
+Route::get('/property/{property}', [HomeController::class, 'property']);
 Route::get('/similar_property', [HomeController::class, 'similar_property']);
 Route::get('/listing/{city}', [HomeController::class, 'city_listing']);
 
 
-
+//bookings route
+Route::get('/bookings', [BookingsController::class, 'bookings'])->name('admin.all_bookings');
+Route::post('/bookings', [BookingsController::class, 'allBookings'])->name('admin.all_bookings');
 
 
 

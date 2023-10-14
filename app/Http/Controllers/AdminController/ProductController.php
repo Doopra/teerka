@@ -16,14 +16,14 @@ use App\Notifications\SendEmailNotification;
 
 class ProductController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware(['auth']);
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware(['auth']);
+    // }
 
      public function view_product(){
         $category=category::all();
-  return view('admin.add_product',compact('category'));
+  return view('admin.admin.admin.add-product',compact('category'));
    //   return view('admin.product',compact('category'));
     }
 
@@ -81,7 +81,7 @@ class ProductController extends Controller
 
     public function show_product(){
         $product = product::all();
-        return view('admin.product_page', compact('product'));
+        return view('admin.admin.admin.show_product', compact('product'));
     }
 
 
