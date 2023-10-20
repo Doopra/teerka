@@ -65,7 +65,7 @@
     <h3>Similar Property</h3>
     <div class="trending ">
 
-        <button class="btn btn-primary mb-3 mr-1 leftArrow"   >
+        <button class="btn btn-primary mb-3 mr-1 leftArrow"  style="background-color:#00BFFF; border-color: #00BFFF"  >
             <i class="fa fa-arrow-left">
 
             </i>
@@ -91,7 +91,7 @@
                                 <li class="list-inline-item"><i class="fa fa-star-o"></i></li>
                             </ul>
                         </div>
-                        <a href="{{url('/property',$property->id)}}" class="btn btn-primary">Book Now</a>
+                        <a href="{{url('/property',$property->id)}}" class="btn btn-primary"style="background-color: #00BFFF; border-color: #00BFFF">Book Now</a>
                     </div>
 
                 </div>
@@ -100,7 +100,7 @@
         </div>
 
 
-        <button class="btn btn-primary mb-3 mr-1 rightArrow"  >
+        <button class="btn btn-primary mb-3 mr-1 rightArrow" style="background-color:#00BFFF; border-color: #00BFFF"  >
             <i class="fa fa-arrow-right " ></i>
         </button>
     </div>

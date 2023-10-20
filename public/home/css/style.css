@@ -131,6 +131,7 @@ a:focus {
 .header_section {
     padding: 10px 0;
     height: 60px;
+    
 }
 
 .header_section .container-fluid {
@@ -286,11 +287,11 @@ a:focus {
 }
 
 .slider_section .detail-box h1 {
-    font-size: 3.0rem;
+    font-size: 2.5rem;
     font-weight: bold;
     margin-bottom: 15px;
     color: #00BFFF;
-    line-height: 60px;
+    line-height: 30px;
 }
 
 .slider_section .detail-box h1 span {
@@ -364,7 +365,7 @@ a:focus {
 
 .slider_bg_box img {
   width: 100%;
-  height: 100%;
+  height: 300px;
   -o-object-fit: cover;
      object-fit: cover;
   -o-object-position: top right;
@@ -627,6 +628,42 @@ a:focus {
   padding: 75px 45px;
 }
 
+
+
+.book_us_btn {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #002c3e;
+}
+
+
+
+
+.book_us_btn {
+  display: inline-block;
+  padding: 10px 45px;
+  background-color: #ffffff;
+  border: 1px solid #f7444e;
+  color: #f7444e;
+  border-radius: 35px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  text-transform: uppercase;
+  margin-top: 35px;
+  font-weight: 600;
+  width: 100%;
+  max-width: 285px;
+}
+
+.book_us_btn:hover {
+  background-color: #00BFFF;
+  color: #ffffff;
+  border: 1px solid #00BFFF;
+
+}
+
+
 .subscribe_section .subscribe_form .heading_container {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -763,7 +800,6 @@ a:focus {
           align-items: center;
   overflow: hidden;
 }
-
 .client_section .box .img_container .img-box .img_box-inner img {
   width: 100%;
 }
@@ -1169,9 +1205,7 @@ form input[type="submit"]:focus {
     width: 100%;
     height: 100%;
   }
-  .text{
-    box-shadow: 5px 10px #00BFFF;
-  }
+  
 
   .box-container {
 

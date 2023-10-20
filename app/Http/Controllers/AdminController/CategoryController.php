@@ -23,7 +23,7 @@ class CategoryController extends Controller
     public function view_category()
     {
        $data=category::all();
-       return view('admin.admin.admin.add-category',compact('data'));
+       return view('admin.add-category',compact('data'));
     }
 
 

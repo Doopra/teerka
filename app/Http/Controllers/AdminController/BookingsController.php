@@ -12,7 +12,7 @@ class BookingsController extends Controller
 {
     public function bookings(){
         $booking = Booking::orderBy('created_at', 'desc')->paginate(5);
-        return view('admin.admin.admin.bookings', compact('booking'));
+        return view('admin.bookings', compact('booking'));
     }
 
     public function allBookings(Request $request){
@@ -53,10 +53,15 @@ class BookingsController extends Controller
         
         $booking->save();
         
-        return redirect()->back()->with('success','Reservation placed Successfully');
+        return view('thankYou.thank-you');
         
 
       
 
     }
+
+    public function suprise() {
+        return view('suprises.suprise');
+    }
+    
 }

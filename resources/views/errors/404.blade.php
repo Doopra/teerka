@@ -1,4 +1,9 @@
+<!DOCTYPE html>
+<html>
+   @include('home.style')
+<body >
 <header class="header_section" >
+
     <div class="container" >
        <nav class="navbar navbar-expand-lg custom_nav-container ">
           <a class="navbar-brand" href="{{url('/')}}"> <p>Teer<span style="color: #00BFFF">ka.com</span></p> </a>
@@ -54,3 +59,24 @@
        </nav>
     </div>
  </header>
+
+<div class="container mt-5 mb-5">
+
+    <div class="page-caption text-center py-5">
+        <h1 style="color: #00BFFF">PAGE NOT FOUND</h1>
+        <p style="font-size: 18px;
+        letter-spacing: .3px; color: rgb(101, 114, 121)">
+            Please call +234 913 413 5226 to book
+
+            <br>
+
+            Sorry, we can't seem to find the page you're looking for. <br>
+            Please head back to the home page or search for a hall
+        </p>
+    </div>
+
+</div>
+
+
+
+ @include('home.footer')

@@ -14,17 +14,17 @@
          @include('home.search');
       </div>
       <!-- why section -->
-      @include('home.why')
+      @include('home.popular-cities')
       <!-- end why section -->
 
-      @include('home.virgin_property')
+      @include('home.best-deals')
 
       <!-- arrival section -->
-      @include('home.new_arrivail')
+      @include('home.list-property')
       <!-- end arrival section -->
 
       <!-- product section -->
-      @include('home.product')
+      @include('home.top-deals')
       <!-- end product section -->
 
       <!-- subscribe section -->
@@ -32,6 +32,7 @@
       <!-- end subscribe section -->
       <!-- client section -->
       @include('home.client')
+      
       <!-- end client section -->
       <!-- footer start -->
       @include('home.footer')

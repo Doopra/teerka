@@ -15,10 +15,10 @@ class UserManagementController extends Controller
 {
     //index page
     public function login(){
-        return view('admin.admin.admin.auth-login-basic');
+        return view('admin.auth-login-basic');
     }
     public function register(){
-       return view('admin.admin.admin.auth-register-basic');
+       return view('admin.auth-register-basic');
     }
 
     public function registerPost(Request $request){
@@ -81,14 +81,12 @@ class UserManagementController extends Controller
                 ->with('error', 'Invalid credentials');
         }
 
-        
-    
         // If authentication succeeds, redirect to the desired route
-        return redirect('/');
+        return redirect()->route('redirect');
             
 
 
-       
+        
        
     }
 

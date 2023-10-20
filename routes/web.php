@@ -40,7 +40,7 @@ Route::DELETE('/logout', [UserManagementController::class, 'logout'])->name('log
 
 
 
-Route::get('/redirect', [AdminController::class, 'redirec']);
+Route::get('/redirect', [HomeController::class, 'redirect'])->name('redirect');
 
 // ->middleware('auth','verified');
 
@@ -70,7 +70,7 @@ Route::get('/cancel_order/{id}', [HomeController::class, 'cancel_order']);
 // Email route
 Route::get('send_email/{id}', [AdminController::class, 'send_email']);
 Route::post('send_user_email/{id}', [AdminController::class, 'send_user_email']);
-Route::get('search/', [AdminController::class, 'searchdata']);
+Route::get('bookings/searchData/', [AdminController::class, 'searchInfoTest'])->name('admin.searchInfoTest');
 
 
 // pdf route
@@ -92,15 +92,14 @@ Route::get('/search', [HomeController::class, 'searchdata']);
 // property route
 Route::get('/property/{property}', [HomeController::class, 'property']);
 Route::get('/similar_property', [HomeController::class, 'similar_property']);
-Route::get('/listing/{city}', [HomeController::class, 'city_listing']);
+Route::get('/hotels/{city}', [HomeController::class, 'city_listing']);
 
 
 //bookings route
 Route::get('/bookings', [BookingsController::class, 'bookings'])->name('admin.all_bookings');
 Route::post('/bookings', [BookingsController::class, 'allBookings'])->name('admin.all_bookings');
 
-
-
-
-
-
+// thank you page
+Route::get('/thank-you', [BookingsController::class, 'thankYou'])->name('thankYou');
+Route::get('/suprise', [BookingsController::class, 'suprise'])->name('home.suprise');
+Route::post('/suprise', [BookingsController::class, 'suprise'])->name('suprise');

@@ -17,7 +17,7 @@
     }
 </style>
 
-<div class="col-5">
+<div class="col-6">
     <div class="container-fluid px-1 py-5 mx-auto">
         <div class="row d-flex justify-content-center booking-form">
             <div class="col-11 text-center">
@@ -117,7 +117,7 @@
                         </div>
                         <div class="row justify-content-end">
                             <div class="form-group col-sm-12">
-                                <button type="submit"  class="btn-block btn-primary" style="height: 50px; background-color: #00BFFF; border-color:none !important">Book Now</button>
+                                <button type="submit"  class="btn-block btn-primary" style="height: 50px; background-color: #00BFFF; border-color:#00BFFF !important">Book Now</button>
                             </div>
                         </div>
                     </form>

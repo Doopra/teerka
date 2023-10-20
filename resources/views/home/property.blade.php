@@ -39,7 +39,7 @@
 @include('home.similarApartment')
 
 
-      <!-- footer start -->
+</div>     <!-- footer start -->
       @include('home.footer')
 
       <div class="cpy_">

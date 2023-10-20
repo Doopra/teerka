@@ -1,112 +1,87 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-     @include('admin.css');
+@extends('layouts.layout')
+@section('content')
+          
+          <h4 class="py-3 mb-4"><span class="text-muted fw-light">All Products</h4>
 
-     <style>
-        .title_deg{
-            text-align: center;
-            font-size: 25px;
-            font-weight: bold;
-            padding-bottom: 50px;
+            
 
-        }
-        .table_deg{
-            border: 2px solid white;
-            width: 70%;
-            margin: auto;
-            text-align: center
-        }
-        th{
-            padding: 20px;
-            background-color: skyblue;
-        }
-        td{
-            inline-size: 1.0;
-            overflow-wrap: break-word;
-        }
-        .img_size{
-            width: 200px;
-            height: 100px;
-            object-fit: contain
-        }
-
-     </style>
-  </head>
-  <body>
-    <div class="container-scroller">
-
-      <!-- partial:partials/_sidebar.html -->
-      @include('admin.sidebar')
-      <!-- partial -->
-      <div class="container-fluid page-body-wrapper">
-
-        <!-- partial:partials/_navbar.html -->
-        @include('admin.header')
-        <!-- partial -->
-        <div class="main-panel">
-            <div class="content-wrapper">
-
-                @if (session()->has('message'))
-                        <div class="alert alert-success">
-                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">X</button>
-                            {{session()->get('message')}}
-    
-                        </div>
-                    @endif
-
-                    <h1 class="title_deg"> All Product</h1>
-
-                <div class="title_deg">
-                   
-                </div>
-                <table class="table_deg">
-                    <tr>
-                        <th>Product Title</th>
+              <!-- Bootstrap Dark Table -->
+              <div class="card">
+                <h5 class="card-header">Products</h5>
+                <div class="table-responsive text-nowrap">
+                  <table class="table table-dark">
+                    <thead>
+                      <tr>
+                        <th>Name</th>
                         <th>Description</th>
                         <th>Quantity</th>
                         <th>Category</th>
                         <th>Price</th>
-                        <th>Discount Price</th>
-                        <th>Product Image</th>
-                        <th>Delete Product</th>
+                        <th>Image</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody class="table-border-bottom-0">
+                      @foreach ($products as $product)
+                      <tr>
+                        <td>
+                          <i class="fab fa-angular fa-lg text-danger me-3"></i>
+                          <span class="fw-medium">{{$product->title}}</span>
+                        </td>
+                        <td class="text-wrap">{{$product->description}}</td>
+                        <td>{{$product->quantity}}</td>
+                        <td>{{$product->category}}</td>
+                        <td>{{$product->price}}</td>
+                        <td>
+                          <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
+                            <li
+                              data-bs-toggle="tooltip"
+                              data-popup="tooltip-custom"
+                              data-bs-placement="top"
+                              class="avatar avatar-xs pull-up"
+                              title="Lilian Fuller">
+                              <img src="/product/{{$product->image}}" alt="Avatar" class="rounded-circle" />
+                            </li>
+                           
+                          </ul>
+                        </td>
+                        <td><span class="badge bg-label-primary me-1">Active</span></td>
+                        <td>
+                          <div class="dropdown">
+                            <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                              <i class="bx bx-dots-vertical-rounded"></i>
+                            </button>
+                            <div class="dropdown-menu">
+                              <a class="dropdown-item"  href="javascript:void(0);"
+                                ><i class="bx bx-edit-alt me-1"></i> Edit</a
+                              >
+                              <a class="dropdown-item" onclick="return confirm('Are you sure?')" href="{{url('delete_product', $product->id)}}"
+                                ><i class="bx bx-trash me-1"></i> Delete</a
+                              >
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      @endforeach
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <!--/ Bootstrap Dark Table -->
+              <hr class="my-5" />
+              <div class="d-flex justify-content-end>
+                {!! $products->withQueryString()->links('pagination::bootstrap-5') !!}
+            </div>
+            
 
+              
 
+             
+            
 
+          
 
+              
 
-
-                    </tr>
-
-                    @foreach ($product as $product)
-
-                    <tr>
-                     <td>{{$product->title}}</td>
-                     <td>{{$product->description}}</td>
-                     <td>{{$product->quantity}}</td>
-                     <td>{{$product->category}}</td>
-                     <td>{{$product->price}}</td>
-                     <td>{{$product->quantity}}</td>
-                     <td>
-                         <img class="img_size" src="/product/{{$product->image}}" alt="">
- 
-                      </td>
-                     <td>
-                         <a onclick="return confirm('Are you sure?')" class="btn btn-danger" href="{{url('delete_product', $product->id)}}">Delete</a>
-                     </td>
-                 </tr>
- 
-                    @endforeach
-                </table>
-
-
-      </div>
-      <!-- page-body-wrapper ends -->
-    </div>
-    <!-- container-scroller -->
-    <!-- plugins:js -->
-   @include('admin.script')
-    <!-- End custom js for this page -->
-  </body>
-</html>
+        @endsection

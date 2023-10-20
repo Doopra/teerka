@@ -24,7 +24,7 @@
                       <li><a href="{{url('/')}}">Home</a></li>
                       <li><a href="#">About</a></li>
                       <li><a href="#">Services</a></li>
-                      <li><a href="#">Testimonial</a></li>
+                      <li><a href="#customer-review">Testimonial</a></li>
 
                    </ul>
                 </div>
@@ -34,9 +34,8 @@
                    <h3>Account</h3>
                    <ul>
                       <li><a href="#">Account</a></li>
-                      <li><a href="#">Checkout</a></li>
-                      <li><a href="#">Login</a></li>
-                      <li><a href="#">Register</a></li>
+                      <li><a href="{{  route('login') }}">Login</a></li>
+                      <li><a href="{{ route('register') }}">Register</a></li>
 
                    </ul>
                 </div>

@@ -43,7 +43,7 @@
 
 
      <div class="my-5 px-4">
-        <h2 class="fw-bold h-font text-center">OUR ROOMS</h2>
+        <h2 class="fw-bold h-font text-center">HOTELS IN </h2>
 
         <div class="h-line bg-dark"></div>
 
@@ -60,75 +60,91 @@
             <div class="row">
                 <div class="container">
                     <div class="col-lg-8">
-                        <h4 class="header-text">Facilities Needed</h4>
+                        <h4 class="header-text">Venue Types</h4>
 
                            <label>
                             <input type="checkbox" class="option-input checkbox" checked>
-                            10,000 - 20,000
+                            Auditorium
                            </label>
 
                            <label>
                             <input type="checkbox" class="option-input checkbox"
                             >
-                            30,000 - 40,000
+                            Boardroom
+                           </label>
+                           <label>
+                            <input type="checkbox" class="option-input checkbox"
+                            >
+                            Civic Center
                            </label>
 
                            <label>
                             <input type="checkbox" class="option-input checkbox"
                             >
-                            50,000 - 60,000
+                            Club Hall
                            </label>
 
                            <label>
                             <input type="checkbox" class="option-input checkbox"
                             >
-                            70,000 - 80,000
+                            Conference Center
                            </label>
 
 
                     </div>
 
                     <div class="col-lg-8">
-                        <h4 class="header-text">Star Rating</h4>
+                        <h4 class="header-text">Event Types</h4>
 
                            <label>
                             <input type="checkbox" class="option-input checkbox" checked>
-                            1k - 3k Likes
+                            Meeting Rooms
                            </label>
 
                            <label>
                             <input type="checkbox" class="option-input checkbox"
                             >
-                            3k - 5k Likes
+                            Wedding Halls
                            </label>
 
                            <label>
                             <input type="checkbox" class="option-input checkbox"
                             >
-                            5k - 8k Likes
+                            Halls for Birthday
                            </label>
 
-                           <label>
-                            <input type="checkbox" class="option-input checkbox"
-                            >
-                            8k  - 10k Likes
-                           </label>
+                         
 
 
                     </div>
 
                     <div class="col-lg-8">
-                        <h4 class="header-text">Property Accessibility </h4>
+                        <h4 class="header-text">Expected Guest</h4>
 
                            <label>
                             <input type="checkbox" class="option-input checkbox" checked>
-                            Shower
+                            Less than 100
                            </label>
 
                            <label>
                             <input type="checkbox" class="option-input checkbox"
                             >
-                            Raised toilet
+                            100 - 200 Guests
+                           </label>
+                           <label>
+                            <input type="checkbox" class="option-input checkbox"
+                            >
+                            200 - 400 Guests
+                           </label>
+                           <label>
+                            <input type="checkbox" class="option-input checkbox"
+                            >
+                            400 - 600 Guests
+                           </label>
+                           <label>
+                            <input type="checkbox" class="option-input checkbox"
+                            >
+                            600 - 1,000 Guests
                            </label>
 
                            
@@ -138,23 +154,33 @@
                     </div>
 
                     <div class="col-lg-8">
-                        <h4 class="header-text">Neighborhood </h4>
+                        <h4 class="header-text">Halls with this Facilities </h4>
 
                            <label>
                             <input type="checkbox" class="option-input checkbox" checked>
-                            Lekki Phase 1
+                            Internet
                            </label>
 
                            <label>
                             <input type="checkbox" class="option-input checkbox"
                             >
-                            Victoria Island
+                            Power supply
                            </label>
 
                            <label>
                             <input type="checkbox" class="option-input checkbox"
                             >
-                            Ikoyi
+                            Lighting
+                           </label>
+                           <label>
+                            <input type="checkbox" class="option-input checkbox"
+                            >
+                            Sound System
+                           </label>
+                           <label>
+                            <input type="checkbox" class="option-input checkbox"
+                            >
+                            Projector
                            </label>
 
                           
@@ -223,7 +249,7 @@
                 </div>
           </div>
           <div class="col-md-2 mt-lg-0 mt-md-0 mt-4 text-center">
-            <h6 class="mb-4">${{$product->price}} per night </h6>
+            <h6 class="mb-4">₦{{ number_format($product->price, 2) }}  </h6>
             <a href="{{url('/property',$product->id)}}" class="btn btn-sm w-100 btn-outline-dark shadow-none">More details</a>
           </div>
         </div>

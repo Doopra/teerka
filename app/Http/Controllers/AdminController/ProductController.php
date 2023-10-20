@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\AdminController;
 
 use PDF;
+use Illuminate\Pagination\Paginator;
 use Notification;
 use App\Models\Image;
 use App\Models\Order;
@@ -23,7 +24,7 @@ class ProductController extends Controller
 
      public function view_product(){
         $category=category::all();
-  return view('admin.admin.admin.add-product',compact('category'));
+  return view('admin.add-product',compact('category'));
    //   return view('admin.product',compact('category'));
     }
 
@@ -43,13 +44,14 @@ class ProductController extends Controller
         $product->description=$request->description;
         $product->price=$request->price;
         $product->state=$request->state;
-        $product->city=$request->city;
+        $citySlug = Str::slug(strtolower($request->city));
+        $product->city = $citySlug;
         $product->status = $request->status == true ? '1':'0';
         $product->quantity=$request->quantity;
         $product->discount_price=$request->discount_price;
         $product->category=$request->category;
         
-
+        
         
         $product->save();
 
@@ -80,8 +82,9 @@ class ProductController extends Controller
     }
 
     public function show_product(){
-        $product = product::all();
-        return view('admin.admin.admin.show_product', compact('product'));
+        $products = Product::orderBy('created_at', 'desc')->paginate(3);
+        return view('admin.show_product', compact('products'));
+        
     }
 
 

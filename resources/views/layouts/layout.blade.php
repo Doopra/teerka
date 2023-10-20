@@ -27,24 +27,24 @@
       href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
       rel="stylesheet" />
 
-    <link rel="stylesheet" href="/adminStyle/admin/assets/vendor/fonts/boxicons.css" />
+    <link rel="stylesheet" href="/admin/assets/vendor/fonts/boxicons.css" />
 
     <!-- Core CSS -->
-    <link rel="stylesheet" href="/adminStyle/admin/assets/vendor/css/core.css" class="template-customizer-core-css" />
-    <link rel="stylesheet" href="/adminStyle/admin/assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
-    <link rel="stylesheet" href="/adminStyle/admin/assets/css/demo.css" />
+    <link rel="stylesheet" href="/admin/assets/vendor/css/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="/admin/assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="/admin/assets/css/demo.css" />
 
     <!-- Vendors CSS -->
-    <link rel="stylesheet" href="/adminStyle/admin/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
-    <link rel="stylesheet" href="/adminStyle/admin/assets/vendor/libs/apex-charts/apex-charts.css" />
+    <link rel="stylesheet" href="/admin/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="/admin/assets/vendor/libs/apex-charts/apex-charts.css" />
 
     <!-- Page CSS -->
 
     <!-- Helpers -->
-    <script src="/adminStyle/admin/assets/vendor/js/helpers.js"></script>
+    <script src="/admin/assets/vendor/js/helpers.js"></script>
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
-    <script src="/adminStyle/admin/assets/js/config.js"></script>
+    <script src="/admin/assets/js/config.js"></script>
   </head>
 
   <body>
@@ -70,10 +70,10 @@
           <ul class="menu-inner py-1">
             <!-- Dashboards -->
             <li class="menu-item active open">
-              <a href="javascript:void(0);" class="menu-link menu-toggle">
+              <a href="{{ route('redirect') }}" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Dashboards">Dashboards</div>
-                <div class="badge bg-danger rounded-pill ms-auto">5</div>
+                
               </a>
            
             <li class="menu-item">
@@ -168,11 +168,19 @@
               <div class="navbar-nav align-items-center">
                 <div class="nav-item d-flex align-items-center">
                   <i class="bx bx-search fs-4 lh-0"></i>
-                  <input
-                    type="text"
-                    class="form-control border-0 shadow-none ps-1 ps-sm-2"
-                    placeholder="Search..."
-                    aria-label="Search..." />
+                  <form action="{{ route('admin.searchInfoTest') }}" method="get">
+                    @csrf
+                    <div class="input-group">
+                        <input
+                            type="text"
+                            name="admin_search"
+                            class="form-control border-0 shadow-none ps-1 ps-sm-2 " style="width:400px"
+                            placeholder="Search..."
+                            aria-label="Search..." />
+                        <button type="submit" class="btn btn-primary">Search</button>
+                    </div>
+                </form>
+                
                 </div>
               </div>
               <!-- /Search -->
@@ -185,7 +193,7 @@
                 <li class="nav-item navbar-dropdown dropdown-user dropdown">
                   <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
                     <div class="avatar avatar-online">
-                      <img src="/adminStyle/admin/assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
+                      <img src="/admin/assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
                     </div>
                   </a>
                   <ul class="dropdown-menu dropdown-menu-end">
@@ -194,7 +202,7 @@
                         <div class="d-flex">
                           <div class="flex-shrink-0 me-3">
                             <div class="avatar avatar-online">
-                              <img src="/adminStyle/admin/assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
+                              <img src="/admin/assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
                             </div>
                           </div>
                           <div class="flex-grow-1">
@@ -291,22 +299,22 @@
           <!-- Core JS -->
           <!-- build:js assets/vendor/js/core.js -->
       
-          <script src="/adminStyle/admin/assets/vendor/libs/jquery/jquery.js"></script>
-          <script src="/adminStyle/admin/assets/vendor/libs/popper/popper.js"></script>
-          <script src="/adminStyle/admin/assets/vendor/js/bootstrap.js"></script>
-          <script src="/adminStyle/admin/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
-          <script src="/adminStyle/admin/assets/vendor/js/menu.js"></script>
+          <script src="/admin/assets/vendor/libs/jquery/jquery.js"></script>
+          <script src="/admin/assets/vendor/libs/popper/popper.js"></script>
+          <script src="/admin/assets/vendor/js/bootstrap.js"></script>
+          <script src="/admin/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+          <script src="/admin/assets/vendor/js/menu.js"></script>
       
           <!-- endbuild -->
       
           <!-- Vendors JS -->
-          <script src="/adminStyle/admin/assets/vendor/libs/apex-charts/apexcharts.js"></script>
+          <script src="/admin/assets/vendor/libs/apex-charts/apexcharts.js"></script>
       
           <!-- Main JS -->
-          <script src="/adminStyle/admin/assets/js/main.js"></script>
+          <script src="/admin/assets/js/main.js"></script>
       
           <!-- Page JS -->
-          <script src="/adminStyle/admin/assets/js/dashboards-analytics.js"></script>
+          <script src="/admin/assets/js/dashboards-analytics.js"></script>
       
           <!-- Place this tag in your head or just before your close body tag. -->
           

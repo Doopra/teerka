@@ -9,14 +9,16 @@ use App\Models\Cart;
 use App\Models\User;
 use App\Models\Image;
 use App\Models\Order;
+use App\Models\Booking;
 use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use PhpParser\Node\Stmt\Foreach_;
 use Illuminate\Support\Facades\DB;
 use Stripe\Stripe as StripeStripe;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\Auth;
 
 
 class HomeController extends Controller
@@ -82,25 +84,17 @@ class HomeController extends Controller
         $usertype=Auth::user()->usertype;
         if($usertype=='1')
         {
-            $total_product = product::all()->count();
-            $total_order = order::all()->count();
-            $total_user = user::all()->count();
+            $product = Product::count();
+            $category = Category::count();
+            $bookings = Booking::count();
+            return view('admin.index', compact('product','category','bookings'));
+            
 
-            $order=order::all();
-            $total_revenue = 0;
-            foreach($order as $order){
-                $total_revenue=$total_revenue + $order->price;
-            }
-
-            $total_delivered=order::where('delivery_status','=','delivered')->get()->count();
-
-            $total_processing=order::where('delivery_status','=','processing')->get()->count();
-
-            return view('admin.home', compact('total_product','total_order','total_user','total_revenue','total_delivered','total_processing'));
+            
         }
         else{
-            $product = product::all();
-             return view('admin.show_product', compact('product'));
+            
+            return redirect()->route('home.index');
         }
     }
     public function product_details($id)
@@ -264,6 +258,7 @@ class HomeController extends Controller
  }
 
  public function searchdata(Request $request){
+    
     $search=$request->searchText;
     $products=product::where('title','LIKE','%'.$search.'%')->orwhere('description','LIKE','%'.$search.'%')->orwhere('state','LIKE','%'.$search.'%')->orwhere('city','LIKE','%'.$search.'%')->paginate(3);
 
@@ -279,7 +274,7 @@ class HomeController extends Controller
     }
 
 
-    return view('home.search_file')->with('data',$data)->with('data',$products);
+    return view('home.search_file', ['data' => $data, 'search' => $search, 'data'=> $products]);
 }
 
    

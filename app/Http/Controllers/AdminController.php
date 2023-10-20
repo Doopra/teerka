@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-
+use App\Models\Booking;
 use PDF;
 use Notification;
 use App\Models\Image;
@@ -17,9 +17,7 @@ use App\Notifications\SendEmailNotification;
 class AdminController extends Controller
 {
    
-    public function redirec(){
-        return view('admin.admin.admin.index');
-    }
+   
    
     public function send_email($id){
         $order = order::find($id);
@@ -42,12 +40,21 @@ class AdminController extends Controller
     }
 
 
-    public function searchdata(Request $request){
-        $searchText=$request->search;
-        $order=order::where('name','LIKE',"%$searchText%")->orWhere('phone','LIKE',"%$searchText%")->orWhere('email','LIKE',"%$searchText%")->get();
+    public function searchInfoTest(Request $request){
 
-        return view('admin.order', compact('order'));
+        
+        $searchData = $request->admin_search;
+        $search = Booking::where('first_name', 'LIKE', "%$searchData%")
+            ->orWhere('last_name', 'LIKE', "%$searchData%")
+            ->orWhere('phone', 'LIKE', "%$searchData%")
+            ->orWhere('email', 'LIKE', "%$searchData%")
+            ->paginate(5); // Adjust the number of items per page as needed
+    
+
+          
+        return view('admin.search-bookings', compact('search'));
     }
 
+    
 
 }
