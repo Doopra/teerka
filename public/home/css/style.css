@@ -130,7 +130,7 @@ a:focus {
 
 .header_section {
     padding: 10px 0;
-    height: 60px;
+    height: 70px;
     
 }
 
@@ -156,7 +156,7 @@ a:focus {
 }
 
 .custom_nav-container {
-  padding: 0;
+  padding: 0 !important;
 }
 
 .custom_nav-container .navbar-nav {
@@ -291,7 +291,7 @@ a:focus {
     font-weight: bold;
     margin-bottom: 15px;
     color: #00BFFF;
-    line-height: 30px;
+    line-height: 40px;
 }
 
 .slider_section .detail-box h1 span {
@@ -301,8 +301,10 @@ a:focus {
 .slider_section .detail-box p {
     font-size: 16px;
     margin-top: 20px;
+    padding-bottom: 20px;
     margin-bottom: 1.5rem;
     color: white;
+    line-height: 1.5;
 }
 
 .slider_section .detail-box a {
@@ -365,7 +367,7 @@ a:focus {
 
 .slider_bg_box img {
   width: 100%;
-  height: 300px;
+  height: 350px;
   -o-object-fit: cover;
      object-fit: cover;
   -o-object-position: top right;
@@ -1274,15 +1276,55 @@ form input[type="submit"]:focus {
     border-style: none;
   }
 
+  .static-header {
+  height: 300px;
+  width: 100%;
+  max-height: 50vh;
+  background: linear-gradient(rgba(8, 68, 130, 0.8), rgba(8, 68, 130, 0.8));
+    background-size: auto, auto;
+  background-size: cover;
+  display: flex;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -moz-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+.static-header h1{
+  color:#fff;
+}
+
 @media only screen and (max-width: 480px) {
+
+  
      .box-container:last-child {
     display: none;
+    }
+    .box-container:nth-child(2) {
+      display: none; 
+    
+    }
+    .checkin-date{
+      display:none
+    }
+    .search-form{
+      width:100% !important
     }
     .containerApartment{
         display: none;
     }
+    .carousel_btn_box{
+      display: none;
+    }
     .tiny-carousel{
         display: none;
+    }
+    .venue-type-side-bar{
+      display:none;
+    }
+    .listing-page-property-facility{
+      padding: 10px 10px 10px 10px !important;
     }
     .tab-body{
         display: none;
@@ -1304,18 +1346,8 @@ form input[type="submit"]:focus {
     }
     }
 
-
-
-
-
-
-
-
-
-
-
- 
-http://kute-themes.com/html/boutique/html/index.html
-https://template.hasthemes.com/noraure/noraure/index.html
-https://preview.hasthemes.com/xoss-preview/xoss/index.html
-
+    @media (max-width: 768px) {
+      .container {
+          max-width: 100%;
+      }
+    }

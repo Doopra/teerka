@@ -13,7 +13,7 @@
                     <thead>
                       <tr>
                         <th>Name</th>
-                        <th>Description</th>
+                        <th>Phone</th>
                         <th>Quantity</th>
                         <th>Category</th>
                         <th>Price</th>
@@ -29,7 +29,7 @@
                           <i class="fab fa-angular fa-lg text-danger me-3"></i>
                           <span class="fw-medium">{{$product->title}}</span>
                         </td>
-                        <td class="text-wrap">{{$product->description}}</td>
+                        <td class="text-wrap">{{$product->phone}}</td>
                         <td>{{$product->quantity}}</td>
                         <td>{{$product->category}}</td>
                         <td>{{$product->price}}</td>
@@ -53,7 +53,7 @@
                               <i class="bx bx-dots-vertical-rounded"></i>
                             </button>
                             <div class="dropdown-menu">
-                              <a class="dropdown-item"  href="javascript:void(0);"
+                              <a class="dropdown-item"  href="{{url('edit_product', $product->id)}}"
                                 ><i class="bx bx-edit-alt me-1"></i> Edit</a
                               >
                               <a class="dropdown-item" onclick="return confirm('Are you sure?')" href="{{url('delete_product', $product->id)}}"

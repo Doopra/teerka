@@ -1,9 +1,9 @@
 <header class="header_section" >
     <div class="container" >
-       <nav class="navbar navbar-expand-lg custom_nav-container ">
-          <a class="navbar-brand" href="{{url('/')}}"> <p>Teer<span style="color: #00BFFF">ka.com</span></p> </a>
+       <nav class="navbar navbar-expand-lg custom_nav-container " >
+          <a class="navbar-brand" href="{{url('/')}}"> <p >Teer<span style="color: #00BFFF">ka.com</span></p> </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class=""> </span>
+          
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
              <ul class="navbar-nav">
@@ -18,12 +18,14 @@
                      <div class="dropdown-menu" aria-labelledby="logoutDropdown">
                          <a class="dropdown-item" href="{{ route('logout') }}"
                             onclick="event.preventDefault();
-                                          document.getElementById('logout-form').submit();">
-                             Logout
+                            document.getElementById('logout-form').submit();">
+                                    
+                            Logout
+
                          </a>
                          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                            @csrf
-                           @method('DELETE')
+                           @method('DELETE') 
                              
                          </form>
                      </div>

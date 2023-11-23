@@ -91,9 +91,9 @@
                                 <li class="list-inline-item"><i class="fa fa-star-o"></i></li>
                             </ul>
                         </div>
-                        <a href="{{url('/property',$property->id)}}" class="btn btn-primary"style="background-color: #00BFFF; border-color: #00BFFF">Book Now</a>
+                        <a href="{{ url("/event/{$property->id}-".Str::slug($property->title)) }}" class="btn btn-primary"style="background-color: #00BFFF; border-color: #00BFFF">Book Now</a>
                     </div>
-
+                    
                 </div>
             @endforeach
 

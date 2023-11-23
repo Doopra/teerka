@@ -4,14 +4,14 @@
    <body >
       <div class="hero_area" >
          <!-- header section strats -->
-         @include('home.header');
+         @include('home.header')
          <!-- end header section -->
 
          <!-- slider section -->
-         @include('home.slider');
+         @include('home.slider')
          <!-- end slider section -->
 
-         @include('home.search');
+         @include('home.search')
       </div>
       <!-- why section -->
       @include('home.popular-cities')

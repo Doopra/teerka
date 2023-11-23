@@ -55,7 +55,7 @@
 
 
 
-    <div class="col-lg-4" style="background-color: #00BFFF">
+    <div class="col-lg-4 venue-type-side-bar" style="background-color: #00BFFF">
         <div class="card" >
             <div class="row">
                 <div class="container">
@@ -200,14 +200,14 @@
 
 
 
-      <div class="col-lg-8  px-2" >
+      <div class="col-lg-8  px-2 " >
         @foreach ($data as $product)
         <div class="card mb-4 border-0 shadow">
         <div class="row g-0 p-3 align-items-center" >
           <div class="col-md-5 mb-lg-0 mb-md-0 mb-3">
             <img src="product/{{$product->images[0]->image}}" style="height:300px; width:100% !important; object-fit:cover" alt="">
             </div>
-          <div class="col-md-5 px-lg-3 px-md-3 px-0">
+          <div class="col-md-5 px-lg-3 px-md-3 px-0 listing-page-property-facility">
             <h5 class="mb-3"> {{$product->title}} </h5>
             <div class="features mb-4">
                   <h6 class="mb-1">Features</h6>
@@ -250,7 +250,7 @@
           </div>
           <div class="col-md-2 mt-lg-0 mt-md-0 mt-4 text-center">
             <h6 class="mb-4">₦{{ number_format($product->price, 2) }}  </h6>
-            <a href="{{url('/property',$product->id)}}" class="btn btn-sm w-100 btn-outline-dark shadow-none">More details</a>
+            <a href="{{ url("/event/{$product->id}-" . Str::slug($product->title)) }}" class="btn btn-sm w-100 btn-outline-dark shadow-none">More details</a>
           </div>
         </div>
 

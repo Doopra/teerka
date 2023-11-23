@@ -40,9 +40,7 @@ Route::DELETE('/logout', [UserManagementController::class, 'logout'])->name('log
 
 
 
-Route::get('/redirect', [HomeController::class, 'redirect'])->name('redirect');
-
-// ->middleware('auth','verified');
+Route::get('/redirect', [HomeController::class, 'redirect'])->name('redirect')->middleware('auth');
 
 
 
@@ -56,6 +54,8 @@ Route::get('/delete_category/{id}', [CategoryController::class, 'delete_category
 
 Route::get('/view_product', [ProductController::class, 'view_product'])->name('admin.add_product');
 Route::post('/add_product', [ProductController::class, 'add_product']);
+Route::get('/edit_product/{id}', [ProductController::class, 'edit_product'])->name('admin.edit_product');
+Route::post('/edit_product/{id}', [ProductController::class, 'store_edit_product'])->name('edit_product');
 Route::get('/product_details/{id}', [HomeController::class, 'product_details']);
 Route::get('/show_product', [ProductController::class, 'show_product'])->name('admin.show_product');
 Route::get('/delete_product/{id}', [ProductController::class, 'delete_product']);
@@ -66,6 +66,7 @@ Route::get('/order', [OrdersController::class, 'order']);
 Route::get('/delivered/{id}', [OrdersController::class, 'delivered']);
 Route::get('/show_order', [HomeController::class, 'show_order']);
 Route::get('/cancel_order/{id}', [HomeController::class, 'cancel_order']);
+Route::get('/about', [HomeController::class, 'about'])->name('about_page');
 
 // Email route
 Route::get('send_email/{id}', [AdminController::class, 'send_email']);
@@ -90,9 +91,11 @@ Route::post('stripe/{totalprice}', [HomeController::class, 'stripePost'])->name(
 Route::get('/search', [HomeController::class, 'searchdata']);
 
 // property route
-Route::get('/property/{property}', [HomeController::class, 'property']);
+Route::get('/event/{id}-{title}', [HomeController::class, 'property']);
+
+
 Route::get('/similar_property', [HomeController::class, 'similar_property']);
-Route::get('/hotels/{city}', [HomeController::class, 'city_listing']);
+Route::get('/event/{city}', [HomeController::class, 'city_listing']);
 
 
 //bookings route
@@ -103,3 +106,4 @@ Route::post('/bookings', [BookingsController::class, 'allBookings'])->name('admi
 Route::get('/thank-you', [BookingsController::class, 'thankYou'])->name('thankYou');
 Route::get('/suprise', [BookingsController::class, 'suprise'])->name('home.suprise');
 Route::post('/suprise', [BookingsController::class, 'suprise'])->name('suprise');
+

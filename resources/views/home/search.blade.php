@@ -1,11 +1,11 @@
-<div class="container-sm availability-form">
-    <div class="row">
-        <div class="col-lg-12 bg-white shadow p-4 rounded">
+<div class="container-sm search-form">
+    <div class="row ">
+        <div class="col-lg-12 bg-white shadow p-4 rounded  ">
 
             <form action="{{url('/search')}}" method="get" >
                 @csrf
                 <div class="row align-items-end">
-                    <div class="col-lg-3 mb-3">
+                    <div class="col-lg-3 mb-3 checkin-date">
                         <label class="form-label" style="font-weight: 500;">Check-in</label>
                         <input type="date" class="form-control shadow-none" style="height: 50px" >
                     </div>

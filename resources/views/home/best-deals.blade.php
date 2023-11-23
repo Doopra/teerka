@@ -47,7 +47,7 @@
 
                     @endif
 
-                    <a href="{{url('property',$product->id)}}" class="option1 btn btn-secondary" style="background-color:  #00BFFF; border-color:  #00BFFF">
+                    <a href="{{ url("/event/{$product->id}-".Str::slug($product->title)) }}" class="option1 btn btn-secondary" style="background-color:  #00BFFF; border-color:  #00BFFF">
                         Book Now
                         </a>
 

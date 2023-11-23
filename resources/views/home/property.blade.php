@@ -6,13 +6,13 @@
    <body>
       <div class="hero_area">
          <!-- header section strats -->
-         @include('home.header');
+         @include('home.header')
          <!-- end header section -->
 
 
 
          <!-- slider section -->
-         @include('home.carousel');
+         @include('home.carousel')
          <!-- end slider section -->
 
 

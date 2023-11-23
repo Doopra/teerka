@@ -22,7 +22,7 @@
                    <ul>
 
                       <li><a href="{{url('/')}}">Home</a></li>
-                      <li><a href="#">About</a></li>
+                      <li><a href="{{ route('about_page') }}">About</a></li>
                       <li><a href="#">Services</a></li>
                       <li><a href="#customer-review">Testimonial</a></li>
 

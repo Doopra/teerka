@@ -12,6 +12,7 @@ use App\Models\Order;
 use App\Models\Booking;
 use App\Models\Product;
 use App\Models\Category;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use PhpParser\Node\Stmt\Foreach_;
 use Illuminate\Support\Facades\DB;
@@ -27,7 +28,12 @@ class HomeController extends Controller
         $products = Product::where('status','1')->take(3)->get();
         $cities = Product::select('city', DB::raw('count(city) as count'))->groupBy('city')->take(4)->get();
 
-
+        // $cities = Product::select('city', DB::raw('count(city) as count'))
+        // ->groupBy('city')
+        // ->havingRaw('count(city) > 1')
+        // ->orderByDesc('count')
+        // ->take(4)
+        // ->get();
 
         $data = array();
 
@@ -43,7 +49,7 @@ class HomeController extends Controller
 
         }
 
-        $virginProducts = Product::where('category','selfcon')->take(3)->get();
+        $virginProducts = Product::where('category','hall')->take(3)->get();
         $virdata = array();
 
         foreach($virginProducts as $property){
@@ -55,23 +61,12 @@ class HomeController extends Controller
             $virdata[] = $property;
         }
 
-        $mostLikeApartment = Product::where('category','1 bedroom flat')->take(1)->get();
-        $mostLikeData = array();
-
-        foreach($mostLikeApartment as $mostLiked){
-            $product_id = $mostLiked->id;
-
-            $images = Image::where('product_id',$product_id)->get()->all();
-
-            $mostLiked['images']=$images;
-            $mostLikeData[] = $mostLiked;
-        }
+    
 
 
 
 
-
-        return view('home.userpage')->with('cities',$cities)->with('products',$data)->with('products',$products)->with('property',$virginProducts)->with('bestApartment',$mostLikeApartment)->with('bestApartment',$mostLikeData);
+        return view('home.userpage')->with('cities',$cities)->with('products',$data)->with('products',$products)->with('property',$virginProducts);
 
 
 
@@ -260,7 +255,7 @@ class HomeController extends Controller
  public function searchdata(Request $request){
     
     $search=$request->searchText;
-    $products=product::where('title','LIKE','%'.$search.'%')->orwhere('description','LIKE','%'.$search.'%')->orwhere('state','LIKE','%'.$search.'%')->orwhere('city','LIKE','%'.$search.'%')->paginate(3);
+    $products=product::where('title','LIKE','%'.$search.'%')->orwhere('description','LIKE','%'.$search.'%')->orwhere('state','LIKE','%'.$search.'%')->orwhere('city','LIKE','%'.$search.'%')->paginate(4);
 
 
     $data = array();
@@ -278,11 +273,24 @@ class HomeController extends Controller
 }
 
    
-public function property(Product $property) // Accept the Product model instance
+public function property($id, $title) 
 {
-    $product_id = $property->id;
+    // Retrieve the product using the ID
+    $property = Product::find($id);
 
-    $image = Image::where('product_id', $product_id)->limit(6)->get();
+    if (!$property) {
+        // Handle the case where the product with the given ID is not found
+        abort(404); // You can customize this error handling as needed
+    }
+
+    // Check if the provided title matches the product's title
+    if ($title !== Str::slug($property->title)) {
+        // Handle a case where the provided title doesn't match the actual title
+        return redirect()->to("/hotel/{$id}-" . Str::slug($property->title), 301);
+    }
+
+    // Retrieve other data (you can modify this part based on your needs)
+    $image = Image::where('product_id', $id)->limit(6)->get();
 
     $properties = Product::all();
 
@@ -297,11 +305,16 @@ public function property(Product $property) // Accept the Product model instance
         $data[] = $prop;
     }
 
-    return view('home.property')->with('product', $property)->with('image', $image)->with('properties', $data);
+    return view('home.property')
+        ->with('product', $property)
+        ->with('image', $image)
+        ->with('properties', $data);
 }
 
+
+
     public function city_listing($city){
-        $products = product::where('city',$city)->with('images')->paginate(3);
+        $products = product::where('city',$city)->with('images')->paginate(4);
 
         $data = array();
        foreach($products as $product){
@@ -319,7 +332,9 @@ public function property(Product $property) // Accept the Product model instance
 
     }
 
-
+    public function about(){
+        return view('home.about');
+    }
 
 
 }
