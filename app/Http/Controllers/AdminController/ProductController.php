@@ -52,6 +52,7 @@ class ProductController extends Controller
         $product->description=$request->description;
         $product->price=$request->price;
         $product->state=$request->state;
+        $product->email=$request->email;
         $product->address = $request->address;
         $product->phone = $request->phone;
         $citySlug = Str::slug(strtolower($request->city));
@@ -112,6 +113,7 @@ class ProductController extends Controller
     $product->description = $request->description;
     $product->price = $request->price;
     $product->state = $request->state;
+    $product->email = $request->email;
     $product->address = $request->address;
     $product->phone = $request->phone;
     $citySlug = Str::slug(strtolower($request->city));
