@@ -25,8 +25,8 @@ use Illuminate\Support\Facades\Auth;
 class HomeController extends Controller
 {
     public function index(){
-        // $products = Product::where('status','1')->take(3)->get();
-        // $cities = Product::select('city', DB::raw('count(city) as count'))->groupBy('city')->take(4)->get();
+        $products = Product::where('status','1')->take(3)->get();
+        $cities = Product::select('city', DB::raw('count(city) as count'))->groupBy('city')->take(4)->get();
 
         // $cities = Product::select('city', DB::raw('count(city) as count'))
         // ->groupBy('city')
